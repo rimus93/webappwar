@@ -52,7 +52,7 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 			</plugin>
 		</plugins>
 		<!-- shown as an example, second priority for the WAR name -->
-		<finalName>mywebappNameSecondOption</finalName>
+		<finalName>mywebapp</finalName>
 	</build>
 
 	<dependencies>
