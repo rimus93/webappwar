@@ -8,3 +8,4 @@ node ('master') {
         git branch: 'master', url: 'https://github.com/rimus93/webappwar'
         echo ("-> Preparation stage finished.")
     }
+}
