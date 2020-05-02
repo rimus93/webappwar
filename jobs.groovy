@@ -1,5 +1,10 @@
 job('webapp-main') {
     description 'Main job'
+	parameters {
+		nodeParam('HOST') {
+		defaultNodes(['master'])
+		}
+	}
     scm {
            git {
            		remote {
@@ -43,6 +48,11 @@ job('webapp-main') {
 
 job('webapp-slave') {
     description 'Deploy job'
+	parameters {
+		nodeParam('HOST') {
+		defaultNodes(['slave1_fulldistr'])
+		}
+	}
     steps {
 	shell('''
 	cp /home/jenkins/.jenkins/workspace/webappwar/target/mywebapp.war /home/jenkins/.jenkins/workspace/webapp-slave/mywebapp.war
@@ -78,6 +88,11 @@ job('webapp-slave') {
 
 job('webapp-verify') {
 	description 'Verify deploy job'
+	parameters {
+		nodeParam('HOST') {
+		defaultNodes(['slave1_fulldistr'])
+		}
+	}
 	quietPeriod(60)
 	steps {
 		httpRequest('http://127.0.0.1:8090/mywebapp/') {
